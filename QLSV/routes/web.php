@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\resetPasswordController;
+use App\Http\Controllers\studentManagerController;
+use App\Http\Controllers\teacherController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware(['checkLogin'])->group(function () {
-    Route::get('/', [AuthenticateController::class, 'showLogin']);
+    Route::get('/', [AuthenticateController::class, 'showLogin'])->name('login');
     Route::post('login', [AuthenticateController::class, 'login']);
     Route::get('password/forget', [resetPasswordController::class, 'ShowEmailRequest']);
     Route::post('password/forget', [resetPasswordController::class, 'emailRequest']);
@@ -27,6 +29,10 @@ Route::middleware(['checkLogin'])->group(function () {
 });
 Route::get('/logout', [AuthenticateController::class, 'logout']);
 
+Route::middleware(['auth'])->group(function () {
+    Route::resource('studentManager',studentManagerController::class);
+    Route::resource('teacherManager',AuthenticateController::class);
+});
 Route::get('/welcome', function () {
     return view('welcome');
 });

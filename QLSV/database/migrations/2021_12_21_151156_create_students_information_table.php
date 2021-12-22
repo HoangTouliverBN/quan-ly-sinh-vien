@@ -19,7 +19,6 @@ class CreateStudentsInformationTable extends Migration
             $table->bigInteger('dob');
             $table->string('gender');
             $table->timestamps();
-
         });
     }
 

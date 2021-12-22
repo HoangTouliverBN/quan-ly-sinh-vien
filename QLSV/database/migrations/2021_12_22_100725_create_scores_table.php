@@ -17,7 +17,7 @@ class CreateScoresTable extends Migration
             $table->id();
             $table->string('studentCode');
             $table->string('subjectCode');
-            $table->bigInteger('idTeacher')->unsigned();
+            $table->string('idTeacher');
             $table->string('classCode');
             $table->integer('pointOne');
             $table->integer('pointTwo');

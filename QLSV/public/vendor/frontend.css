@@ -18,3 +18,9 @@
     justify-content: space-between;
     align-items: center;
 }
+.menu-custom-children {
+    border-radius: 0px !important;
+}
+.menu-custom {
+    margin-top: 80px;
+}

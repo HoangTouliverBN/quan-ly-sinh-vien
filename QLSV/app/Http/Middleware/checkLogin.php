@@ -18,7 +18,7 @@ class checkLogin
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check()) {
-            return redirect('/welcome');
+            return redirect('studentManager');
         }
 
         return $next($request);

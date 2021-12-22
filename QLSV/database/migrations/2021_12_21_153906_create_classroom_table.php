@@ -18,7 +18,7 @@ class CreateClassroomTable extends Migration
             $table->string('studentCodeClass');
 
             $table->string('subjectCodeClass');
-            $table->bigInteger('idTeacher')->unsigned();
+            $table->string('idTeacher');
             $table->timestamps();
 
             $table->foreign('studentCodeClass')->references('studentCode')->on('students_information')

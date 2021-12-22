@@ -8,6 +8,7 @@
   <title>QLSV</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="{{ asset('vendor/frontend.css') }}">
 </head>
 
@@ -33,9 +34,18 @@
   {{-- header login --}}
   @include('backend.layout._header')
 
-  {{-- content --}}
-  @yield('content')
+  <div class="container pt-5">
+    <div class="row">
+      <div class="col-2">
+        @include('backend.layout._menu')
+      </div>
+      <div class="col-10">
+        {{-- content --}}
+        @yield('content')
+      </div>
 
+    </div>
+  </div>
   {{-- footer login --}}
   @include('backend.layout._footer')
 

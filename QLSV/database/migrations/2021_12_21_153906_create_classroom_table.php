@@ -14,8 +14,7 @@ class CreateClassroomTable extends Migration
     public function up()
     {
         Schema::create('classroom', function (Blueprint $table) {
-            $table->id();
-            $table->string('classCode');
+            $table->string('classCode')->primary();
             $table->string('studentCodeClass');
 
             $table->string('subjectCodeClass');

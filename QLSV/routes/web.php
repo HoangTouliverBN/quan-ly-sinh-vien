@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthenticateController;
+use App\Http\Controllers\resetPasswordController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [AuthenticateController::class, 'showLogin']);
-Route::post('login', [AuthenticateController::class, 'login']);
+
+Route::middleware(['checkLogin'])->group(function () {
+    Route::get('/', [AuthenticateController::class, 'showLogin']);
+    Route::post('login', [AuthenticateController::class, 'login']);
+    Route::get('password/forget', [resetPasswordController::class, 'ShowEmailRequest']);
+    Route::post('password/forget', [resetPasswordController::class, 'emailRequest']);
+    Route::get('password/reset/{token}', [resetPasswordController::class, 'showResetPassword']);
+    Route::post('password/reset/{token}', [resetPasswordController::class, 'resetPassword']);
+});
+Route::get('/logout', [AuthenticateController::class, 'logout']);
+
+Route::get('/welcome', function () {
+    return view('welcome');
+});

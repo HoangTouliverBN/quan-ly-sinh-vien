@@ -5,9 +5,9 @@
     <div class="d-flex justify-content-center alignt-items-center">
       <div class="loginForm ">
         <div class="d-flex justify-content-center">
-          <h2 class="text-center mt-2 pb-2 loginContent">Đăng nhập</h2>
+          <h2 class="text-center mt-2 pb-2 loginContent">Quên mật khẩu</h2>
         </div>
-        <form action="{{ url('login') }}" method="POST" class="container">
+        <form action="{{ url('password/forget') }}" method="POST" class="container">
           @csrf
           <div class="mb-3 mt-3">
             <label for="email" class="form-label">Email</label>
@@ -16,22 +16,14 @@
           @error('email')
             <p class="text-danger">{{ $message }}</p>
           @enderror
-
-          <div class="mb-3 mt-3">
-            <label for="password" class="form-label">Mật khẩu</label>
-            <input type="password" name="password" class="form-control" id="password" placeholder="Nhập mật khẩu">
-          </div>
-          @error('password')
-            <p class="text-danger">{{ $message }}</p>
-          @enderror
-          @isset($message)
-            <p class="text-danger">{{ $message }}</p>
+          @isset($error)
+            <p class="text-danger">{{ $error }}</p>
           @endisset
           <div class="text-center">
-            <button type="submit" class="btn btn-primary">Đăng nhập</button>
+            <button type="submit" class="btn btn-primary">Gửi link đặt lại mật khẩu</button>
           </div>
           <div class="text-right mb-3">
-            <a href="password/forget" class="text-decoration-none">Quên mật khẩu?</a>
+            <a href="/" class="text-decoration-none">Đăng nhập?</a>
           </div>
         </form>
       </div>

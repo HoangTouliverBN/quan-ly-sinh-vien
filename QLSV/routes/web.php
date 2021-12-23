@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\resetPasswordController;
 use App\Http\Controllers\studentManagerController;
+use App\Http\Controllers\subjectController;
 use App\Http\Controllers\teacherController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
@@ -30,8 +31,9 @@ Route::middleware(['checkLogin'])->group(function () {
 Route::get('/logout', [AuthenticateController::class, 'logout']);
 
 Route::middleware(['auth'])->group(function () {
-    Route::resource('studentManager',studentManagerController::class);
-    Route::resource('teacherManager',AuthenticateController::class);
+    Route::resource('studentManager', studentManagerController::class);
+    Route::resource('teacherManager', AuthenticateController::class);
+    Route::resource('subjectManager', subjectController::class);
 });
 Route::get('/welcome', function () {
     return view('welcome');

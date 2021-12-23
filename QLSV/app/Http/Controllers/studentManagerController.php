@@ -54,7 +54,7 @@ class studentManagerController extends Controller
             'name' => ['required'],
             'gender' => ['required'],
             'dob' => ['required'],
-            'studentCode' => ['required', new duplicateStudentCode],
+            'studentCode' => ['required'],
         ]);
         $check = $studentManager->update($request->input());
         if ($check) {

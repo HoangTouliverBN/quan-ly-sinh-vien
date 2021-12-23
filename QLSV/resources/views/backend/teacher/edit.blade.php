@@ -1,7 +1,7 @@
 @extends('backend.layout.index')
 @section('content')
   <div class="container">
-    <h1 class="text-center">Thêm học viên</h1>
+    <h1 class="text-center">Cập nhật giáo viên</h1>
     <form action="{{ url('teacherManager/' . $teacherManager->id) }}" method="POST">
       @csrf
       @method('PUT')

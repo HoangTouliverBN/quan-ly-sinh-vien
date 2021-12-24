@@ -7,7 +7,7 @@
       <div>
         <h1 class="text-center">Danh sách học viên</h1>
         <div>
-          <a href="{{ url('teacherManager/create') }}" class="btn btn-success">+ Thêm mới</a>
+          <a href="{{ url('studentManager/create') }}" class="btn btn-success">+ Thêm mới</a>
         </div>
       </div><br>
 

@@ -67,6 +67,7 @@ class AuthenticateController extends Controller
         $password = $request->input('id');
         $check = User::create(array_merge($request->input(), [
             'password' => $password,
+            'roleId' => 2
         ]));
         if ($check) {
             return redirect('teacherManager')->with('message', 'Thêm mới giáo viên thành công');

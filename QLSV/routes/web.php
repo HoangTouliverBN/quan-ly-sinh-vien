@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthenticateController;
+use App\Http\Controllers\classManagerController;
 use App\Http\Controllers\resetPasswordController;
+use App\Http\Controllers\scoresManagerController;
 use App\Http\Controllers\studentManagerController;
 use App\Http\Controllers\subjectController;
 use App\Http\Controllers\teacherController;
@@ -34,6 +36,12 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('studentManager', studentManagerController::class);
     Route::resource('teacherManager', AuthenticateController::class);
     Route::resource('subjectManager', subjectController::class);
+    Route::resource('classManager', classManagerController::class);
+    Route::get('scoresManager/create/{classCode}', [scoresManagerController::class, 'create']);
+    Route::post('scoresManager/create/{classCode}', [scoresManagerController::class, 'store']);
+    Route::get('scoresManager/{id}/{classCode}/edit', [scoresManagerController::class, 'edit']);
+    Route::put('scoresManager/{id}/{classCode}/edit', [scoresManagerController::class, 'update']);
+    Route::delete('scoresManager/{id}/{classCode}/delete', [scoresManagerController::class, 'destroy']);
 });
 Route::get('/welcome', function () {
     return view('welcome');

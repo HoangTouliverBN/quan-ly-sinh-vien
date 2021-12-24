@@ -1,15 +1,26 @@
-.header{
+.header {
     background-color: #006699;
     color: white;
 }
-.loginForm{
+.loginForm {
     border: 1px solid;
     width: 500px;
     height: fit-content;
     border-radius: 30px;
 }
-.loginContent{
+.loginContent {
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     width: 85%;
     height: fit-content;
+}
+.div-password {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-custom-children {
+    border-radius: 0px !important;
+}
+.menu-custom {
+    margin-top: 80px;
 }

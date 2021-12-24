@@ -14,17 +14,12 @@ class CreateClassroomTable extends Migration
     public function up()
     {
         Schema::create('classroom', function (Blueprint $table) {
-            $table->id();
-            $table->string('classCode');
-            $table->string('studentCodeClass');
-
-            $table->string('subjectCodeClass');
-            $table->bigInteger('idTeacher')->unsigned();
+            $table->string('classCode')->primary();
+            $table->string('name');
+            $table->string('subjectCodeClass')->nullable();
+            $table->string('idTeacher');
             $table->timestamps();
 
-            $table->foreign('studentCodeClass')->references('studentCode')->on('students_information')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
             $table->foreign('subjectCodeClass')->references('subjectCode')->on('subjects')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
